@@ -1,4 +1,3 @@
-import HeaderAuth from '@/components/header-auth'
 import { GeistSans } from 'geist/font/sans'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
@@ -21,14 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={GeistSans.className} suppressHydrationWarning>
-      <body className='bg-background text-foreground w-full'>
+      <body className='w-full bg-background text-foreground'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
-          <main className='min-h-screen flex flex-col items-center w-full'>
+          <main className='flex min-h-screen w-full flex-col items-center'>
             <div className='w-full'>{children}</div>
           </main>
         </ThemeProvider>
