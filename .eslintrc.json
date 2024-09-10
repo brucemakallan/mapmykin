@@ -1,8 +1,15 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./mapmykin/tsconfig.json"
   },
+  "ignorePatterns": [
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "next.config.js",
+    "next-env.d.ts",
+    "middleware"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
