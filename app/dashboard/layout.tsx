@@ -1,4 +1,4 @@
-import AuthButton from '@/components/header-auth'
+import { AuthNavBar } from '@/components/header-auth'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -20,7 +20,7 @@ export default async function Layout({
   return (
     <div className='flex flex-col'>
       {/* TODO: Change this to top nav */}
-      <AuthButton />
+      <AuthNavBar />
       {children}
     </div>
   )
