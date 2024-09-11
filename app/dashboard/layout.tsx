@@ -1,3 +1,4 @@
+import AuthButton from '@/components/header-auth'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -12,7 +13,15 @@ export default async function Layout({
     data: { user },
   } = await supabase.auth.getUser()
 
-  if (user) redirect('/dashboard')
+  if (!user) {
+    return redirect('/sign-in')
+  }
 
-  return <div>{children}</div>
+  return (
+    <div className='flex flex-col'>
+      {/* TODO: Change this to top nav */}
+      <AuthButton />
+      {children}
+    </div>
+  )
 }
