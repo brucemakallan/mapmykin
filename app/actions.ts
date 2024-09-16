@@ -3,12 +3,13 @@
 import { encodedRedirect } from '@/utils/utils'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get('email')?.toString()
   const password = formData.get('password')?.toString()
   const supabase = createClient()
-  const origin = process.env.NEXT_PUBLIC_ENVIRONMENT_URL ?? ''
+  const origin = headers().get('origin') ?? ''
 
   if (!email || !password) {
     return { error: 'Email and password are required' }
@@ -54,7 +55,7 @@ export const signInAction = async (formData: FormData) => {
 export const forgotPasswordAction = async (formData: FormData) => {
   const email = formData.get('email')?.toString()
   const supabase = createClient()
-  const origin = process.env.NEXT_PUBLIC_ENVIRONMENT_URL ?? ''
+  const origin = headers().get('origin') ?? ''
   const callbackUrl = formData.get('callbackUrl')?.toString()
 
   if (!email) {
