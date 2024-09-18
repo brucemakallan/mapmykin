@@ -113,7 +113,8 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect('error', '/reset-password', 'Password update failed')
   }
 
-  encodedRedirect('success', '/reset-password', 'Password updated')
+  await supabase.auth.signOut()
+  return redirect('/sign-in')
 }
 
 export const signOutAction = async () => {

@@ -3,6 +3,7 @@ import { FormMessage, Message } from '@/components/form-message'
 import { SubmitButton } from '@/components/submit-button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import PasswordField from '@/components/ui/password'
 import Link from 'next/link'
 
 export default function Login({ searchParams }: { searchParams: Message }) {
@@ -27,12 +28,7 @@ export default function Login({ searchParams }: { searchParams: Message }) {
             Forgot Password?
           </Link>
         </div>
-        <Input
-          type='password'
-          name='password'
-          placeholder='Your password'
-          required
-        />
+        <PasswordField />
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <SubmitButton pendingText='Signing In...' formAction={signInAction}>
           Sign in

@@ -1,8 +1,8 @@
 import { resetPasswordAction } from '@/app/actions'
 import { FormMessage, Message } from '@/components/form-message'
 import { SubmitButton } from '@/components/submit-button'
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import PasswordField from '@/components/ui/password'
 import Link from 'next/link'
 
 export default function ResetPassword({
@@ -18,18 +18,11 @@ export default function ResetPassword({
           Please enter your new password below.
         </p>
         <Label htmlFor='password'>New password</Label>
-        <Input
-          type='password'
-          name='password'
-          placeholder='New password'
-          required
-        />
+        <PasswordField />
         <Label htmlFor='confirmPassword'>Confirm password</Label>
-        <Input
-          type='password'
+        <PasswordField
           name='confirmPassword'
           placeholder='Confirm password'
-          required
         />
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <SubmitButton formAction={resetPasswordAction}>
@@ -37,7 +30,7 @@ export default function ResetPassword({
         </SubmitButton>
         <FormMessage message={searchParams} />
         <p className='text-sm text-foreground/60'>
-          {'Proceed to the '}
+          {'Back to '}
           <Link className='text-primary underline' href='/dashboard'>
             Dashboard
           </Link>

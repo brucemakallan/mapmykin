@@ -3,6 +3,7 @@ import { FormMessage, Message } from '@/components/form-message'
 import { SubmitButton } from '@/components/submit-button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import PasswordField from '@/components/ui/password'
 import Link from 'next/link'
 
 export default function Signup({ searchParams }: { searchParams: Message }) {
@@ -27,13 +28,7 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
         <Label htmlFor='email'>Email</Label>
         <Input name='email' placeholder='you@example.com' required />
         <Label htmlFor='password'>Password</Label>
-        <Input
-          type='password'
-          name='password'
-          placeholder='Your password'
-          minLength={6}
-          required
-        />
+        <PasswordField />
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <SubmitButton formAction={signUpAction} pendingText='Signing up...'>
           Sign up
