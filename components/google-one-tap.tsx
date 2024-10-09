@@ -17,7 +17,10 @@ const OneTapComponent = () => {
   // generate nonce to use for google id token sign-in
   const generateNonce = async (): Promise<string[]> => {
     const nonce = btoa(
-      String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32)))
+      String.fromCharCode.apply(
+        null,
+        Array.from(crypto.getRandomValues(new Uint8Array(32)))
+      )
     )
     const encoder = new TextEncoder()
     const encodedNonce = encoder.encode(nonce)
